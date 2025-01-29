@@ -4,9 +4,12 @@ public class Queen {
 
     }
 
-    private String[][] move (String [][] desk, int bX, int bY, int aX, int aY) {
+    private String[][] moveQ (String [][] desk, int bX, int bY, int aX, int aY) {
         int tempForRevise;
         int tempForRevise2;
+        if ((aX >= 3 && aY >= 3) && (aX <= 10 && aY <= 3) && (aX >= 3 && aY <= 10) && (aX <= 10 && aY <=10))  {
+            return desk;
+        }
         if (bX == bX && aY == aY) {
             return desk;
         } else if (bX == aX) {
