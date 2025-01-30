@@ -6,7 +6,7 @@ public class Bishop {
     }
 
     private static String [][] Bishop (String [][] desk, int bX, int bY, int aX, int aY) {
-        if ((aX >= 3 && aY >= 3) && (aX <= 10 && aY <= 3) && (aX >= 3 && aY <= 10) && (aX <= 10 && aY <=10))  {
+        if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
             return desk;
         }
         if (bX == bX && aY == aY)

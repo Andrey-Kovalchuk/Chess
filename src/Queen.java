@@ -7,7 +7,7 @@ public class Queen {
     private String[][] moveQ (String [][] desk, int bX, int bY, int aX, int aY) {
         int tempForRevise;
         int tempForRevise2;
-        if ((aX >= 3 && aY >= 3) && (aX <= 10 && aY <= 3) && (aX >= 3 && aY <= 10) && (aX <= 10 && aY <=10))  {
+        if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
             return desk;
         }
         if (bX == bX && aY == aY) {
