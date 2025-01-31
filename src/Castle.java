@@ -5,7 +5,7 @@ public class Castle {
          if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
              return desk;
          }
-         if (bX == bX && aY == aY) {
+         if (bX == aX && bY == aY) {
              return desk;
          } else if (bX == aX) {
              tempForRevise = aY;

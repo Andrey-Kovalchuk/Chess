@@ -9,7 +9,7 @@ public class Bishop {
         if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
             return desk;
         }
-        if (bX == bX && aY == aY)
+        if (bX == aX && bY == aY)
             return desk;
         int tempForRevise;
         int tempForRevise2;

@@ -16,10 +16,10 @@ public class King {
     if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
         return desk;
     }
-    if (bX == bX && aY == aY)
+    if (bX == aX && bY == aY)
         return desk;
 
-    if ((  1 >=  bX-aX) && (bX-aX >= - 1) && (aY-aY <= 1 )&& ( aY-aY >=-1) ){
+    if ((  1 >=  bX-aX) || (bX-aX >= - 1) && (bY-aY <= 1 )|| ( bY-aY >=-1) ){
         desk[aX][aY] = "K";
         desk[bX][bY] = " ";
         return desk;
