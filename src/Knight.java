@@ -12,7 +12,7 @@ public class Knight {
          this.desk = desk;
         if (bX == aX && bY == aY)
             return desk;
-        if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
+        if (aX<2   || aX > 11  || aY < 2 || aY > 11 )  {
             return desk;
         }
         if (bX-aX == 2) {

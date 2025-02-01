@@ -1,6 +1,6 @@
-public class Castle {
+public class Rook {
 
-     private static String [] [] castle(String [][] desk, int bX, int bY, int aX, int aY) {
+     private static String [] [] rook(String [][] desk, int bX, int bY, int aX, int aY) {
          int tempForRevise;
          if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
              return desk;
