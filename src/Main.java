@@ -5,5 +5,7 @@ public class Main {
         GameBoard gameBoard = new GameBoard();
         gameBoard.createNewGameBoard();
         gameBoard.drawGameBoard();
+        MoveOfPiece moveOfPiece = new MoveOfPiece();
+        moveOfPiece.playInChess();
     }
 }

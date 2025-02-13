@@ -1,80 +1,21 @@
-public class Bishop {
+public class Bishop extends ChessPiece {
+    private int side;
 
 
-    public Bishop() {
-
+    public static Boolean getMoveBishop (int side, int aX, int aY, int bX, int bY ) {
+        return moveBishop(side, bX, bY, aX, aY);
     }
 
-    private static String [][] Bishop (String [][] desk, int bX, int bY, int aX, int aY) {
-        if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
-            return desk;
+   private static Boolean moveBishop(int side, int bX, int bY, int aX, int aY ) {
+
+        if (!(bX - aX == bY - aY || bX - aX == (-1)*(bY - aY))){    // 2 6  --- 6  10  \\ 9 5 --> 5 9   9 6   5 2
+          return false;
         }
-        if (bX == aX && bY == aY)
-            return desk;
-        int tempForRevise;
-        int tempForRevise2;
-        if (bX - aX == bY - aY) { // а = 3. б=5 -- в с = 5. д = 7        2 2
-            tempForRevise = aX;
-            tempForRevise2 = aY;
 
-            if ((aX - bX > 0) && (aY - bY > 0)) {
-                while (bX != aX && bY != aY) {
-                    if (!desk[aX][aY].equals(" ")) {
-                        return desk;
-                    }
-                    aX--;
-                    aY--;
-                }
+       return (diagonal(side, bX, bY, aX, aY));
 
-                aX = tempForRevise;
-                aY = tempForRevise2;
-                desk[aX][aY] = "B";
-                desk[bX][bY] = " ";
-                return desk;
-            } else if ((aX - bX > 0) && (aY + bY < 0)) {
-                while (bX != aX && bY != aY) {
-                    if (!desk[aX][aY].equals(" ")) {
-                        return desk;
-                    }
-                    aX--;
-                    aY++;
-                }
+   }
 
-                aX = tempForRevise;
-                aY = tempForRevise2;
-                desk[aX][aY] = "B";
-                desk[bX][bY] = " ";
-                return desk;
-            } else if ((aX - bX < 0) && (aY + bY > 0)) {
-                while (bX != aX && bY != aY) {
-                    if (!desk[aX][aY].equals(" ")) {
-                        return desk;
-                    }
-                    aX++;
-                    aY--;
-                }
 
-                aX = tempForRevise;
-                aY = tempForRevise2;
-                desk[aX][aY] = "B";
-                desk[bX][bY] = " ";
-                return desk;
-            } else if ((aX - bX < 0) && (aY + bY < 0)) {
-                while (bX != aX && bY != aY) {
-                    if (!desk[aX][aY].equals(" ")) {
-                        return desk;
-                    }
-                    aX++;
-                    aY++;
-                }
-
-                aX = tempForRevise;
-                aY = tempForRevise2;
-                desk[aX][aY] = "B";
-                desk[bX][bY] = " ";
-                return desk;
-            }
-        }
-     return desk;
-    }
 }
+

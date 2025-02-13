@@ -1,36 +1,17 @@
-public class King {
+public class King extends ChessPiece{
 
-    public void king() {
-
+    public static boolean getMoveKing(int side, int aX, int aY, int bX, int bY ) {
+        return MoveKing(side, bX, bY, aX, aY);
     }
 
+    private static boolean MoveKing(int side, int aX, int aY, int bX, int bY ){
+        if (getCheckForKing(aX, bY)) {
+            return false;
+        }
+        return (((aX-bX == 1) || (aX-bX == -1)) && ((aY-bY == 1) || (aY-bY == -1)));
 
-    private static void gameOver() {
-        System. exit(0);
     }
-    private static String [][] move (String [][] desk, int bX, int bY, int aX, int aY) {
-
-    if (desk[aX][aY].equals("K")){
-        return desk;
-    }
-    if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
-        return desk;
-    }
-    if (bX == aX && bY == aY)
-        return desk;
-
-    if ((  1 >=  bX-aX) || (bX-aX >= - 1) && (bY-aY <= 1 )|| ( bY-aY >=-1) ){
-        desk[aX][aY] = "K";
-        desk[bX][bY] = " ";
-        return desk;
-    }
-
-    return desk ;
-    }
-
-
-
-
 
 
 }
+

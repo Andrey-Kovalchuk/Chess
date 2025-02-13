@@ -1,66 +1,32 @@
-public class Knight {
-     static int bX;
-     static int aX;
-     static int bY;
-     static int aY;
-     static String[][] desk;
-    private String[][] Knight(String[][] desk, int bX, int bY, int aX, int aY) {
-         this.bX = bX;
-         this.bY = bY;
-         this.aX = aX;
-         this.aY = aY;
-         this.desk = desk;
-        if (bX == aX && bY == aY)
-            return desk;
-        if (aX<2   || aX > 11  || aY < 2 || aY > 11 )  {
-            return desk;
-        }
+public class Knight extends ChessPiece {
+
+    public static Boolean getMoveKnight (int side, int aX, int aY, int bX, int bY ) {
+        return moveKnight(side, bX, bY, aX, aY);
+    }
+    private static Boolean moveKnight(int side, int bX, int bY, int aX, int aY ) {
         if (bX-aX == 2) {
             if (bY-aY == 1) {
-                loadChenges();
+                return true;
             }
-            else if (bY-aY == -1) {
-                loadChenges();
-            } else {
-                return desk;
-            }
+            else return (bY - aY == -1);
         }
         else if (bX-aX == -2) {
             if (bY-aY == 1) {
-                loadChenges();
+                return true;
             }
-            else if (bY-aY == -1) {
-                loadChenges();
-            } else {
-                return desk;
-            }
+            else return (bY - aY == -1);
         } if (bY-aY == 2) {
             if (bX-aX == 1) {
-                loadChenges();
+                return true;
             }
-            else if (bX-aX == -1) {
-                loadChenges();
-            } else {
-                return desk;
-            }
+            else return (bX - aX == -1);
         }
         else if (bY-aY == -2) {
             if (bX-aX == 1) {
-                loadChenges();
+                return true;
             }
-            else if (bX-aX == -1) {
-                loadChenges();
-            } else {
-                return desk;
-            }
+            else return (bX - aX == -1);
         }
-        return desk;
+        return false;
     }
-
-private static void loadChenges() {
-    desk [bX][bY] = " ";
-    desk [aX][aY] = "H";
-}
-
-
 }

@@ -2,9 +2,10 @@ public class GameBoard {
 
     private static String [][] gameBoard;
 
-    public String[][] getGameBoard() {
+    public static String[][] getGameBoard() {
         return gameBoard;
     }
+    public static void setGameBoard (int x, int y, String thePoint) { gameBoard [x][y] = thePoint; }
 
     public void setGameBoard(String[][] gameBoard) {
             try {
@@ -25,7 +26,7 @@ public class GameBoard {
 
     private void fillBoardEmptyAndBorders()
     {
-        String emptySymbol = ". ";
+        String emptySymbol = ".";
         String horizontalBorderSymbol = "|| ";
         String verticalBorderSymbol = "= ";
 
@@ -66,23 +67,24 @@ public class GameBoard {
     private void placeChessPiecesOnBoard(){
         // Blacks:
         for(int i = 2; i < 10; i++) {
-            gameBoard[3][i] = "♟";
+            gameBoard[3][i] = "Z";
         }
-        gameBoard[2][2] = "♜"; gameBoard[2][3] = "♞"; gameBoard[2][4] = "♝"; gameBoard[2][5] = "♛"; gameBoard[2][6] = "♚"; gameBoard[2][7] = "♝"; gameBoard[2][8] = "♞"; gameBoard[2][9] = "♜";
+        gameBoard[2][2] = "R"; gameBoard[2][3] = "H"; gameBoard[2][4] = "B"; gameBoard[2][5] = "K"; gameBoard[2][6] = "Q"; gameBoard[2][7] = "B"; gameBoard[2][8] = "H"; gameBoard[2][9] = "R";
 
         // Whites:
         for(int i = 2; i < 10; i++) {
-            gameBoard[8][i] = "♙";
+            gameBoard[8][i] = "x";
         }
-        gameBoard[9][2] = "♖"; gameBoard[9][3] = "♘"; gameBoard[9][4] = "♗"; gameBoard[9][5] = "♔"; gameBoard[9][6] = "♕"; gameBoard[9][7] = "♗"; gameBoard[9][8] = "♘"; gameBoard[9][9] = "♖";
+        gameBoard[9][2] = "r"; gameBoard[9][3] = "h"; gameBoard[9][4] = "b"; gameBoard[9][5] = "q"; gameBoard[9][6] = "k"; gameBoard[9][7] = "b"; gameBoard[9][8] = "h"; gameBoard[9][9] = "r";
     }
 
-    public void drawGameBoard() {
+    public static void drawGameBoard() {
         for(int i = 0; i < gameBoard.length; i++) {
             for(int j = 0; j < gameBoard[i].length; j++){
                 System.out.printf("%-3s", gameBoard[i][j]);
             }
             System.out.println();
         }
+
     }
 }
