@@ -1,36 +1,26 @@
-public class King {
+import java.util.Objects;
 
-    public void king() {
+public class King extends ChessPiece{
+    private final static String[][] gameBoard = GameBoard.getGameBoard();
 
+    public static boolean moveKing(char side, int bX, int bY, int aX, int aY ){
+        boolean isKingTryingToCastle;
+        boolean canKingShortCastle, canKingLongCastle;
+
+        if (Objects.equals(gameBoard[aX][aY], "K")) {
+            return false;
+        }
+        if((Math.abs(aX - bX) == 1 || Math.abs(aY - bY) == 1) || (Math.abs(bX - aX) == 1 && Math.abs(bY - aY) == 1)){
+            GameBoard.flagBoard[bX][bY] = true;
+            return true;
+        }
+
+        isKingTryingToCastle = !GameBoard.flagBoard[bX][bY] && bX - aX == 0 && Math.abs(bY - aY) == 2;
+        if(isKingTryingToCastle){
+            castleKingPiece(side, bX, bY, aX, aY);
+            return true;
+        }
+        return false;
     }
-
-
-    private static void gameOver() {
-        System. exit(0);
-    }
-    private static String [][] move (String [][] desk, int bX, int bY, int aX, int aY) {
-
-    if (desk[aX][aY].equals("K")){
-        return desk;
-    }
-    if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
-        return desk;
-    }
-    if (bX == aX && bY == aY)
-        return desk;
-
-    if ((  1 >=  bX-aX) || (bX-aX >= - 1) && (bY-aY <= 1 )|| ( bY-aY >=-1) ){
-        desk[aX][aY] = "K";
-        desk[bX][bY] = " ";
-        return desk;
-    }
-
-    return desk ;
-    }
-
-
-
-
-
-
 }
+

@@ -1,64 +1,12 @@
-public class Rook {
-
-     private static String [] [] rook(String [][] desk, int bX, int bY, int aX, int aY) {
-         int tempForRevise;
-         if (aX<2   || aX > 11  || aY< 2 || aY > 11 )  {
-             return desk;
-         }
-         if (bX == aX && bY == aY) {
-             return desk;
-         } else if (bX == aX) {
-             tempForRevise = aY;
-             if (aY > bY) {
-                 while (bY != aY) {
-                     if (!desk[aX][aY].equals(" ")) {
-                         return desk;
-                     }
-                     aY--;
-                 }
-             } else {
-                 if (aY < bY) {
-                     while (bY != aY) {
-                         if (!desk[aX][aY].equals(" ")) {
-                             return desk;
-                         }
-                         aY++;
-                     }
-
-                 }
-             }
-             aY = tempForRevise;
-
-             desk[bX][bY] = " ";
-             desk[aX][aY] = "C";
-             return desk;
-         } else if (bY == aY) {
-             tempForRevise = aX;
-             if (aX > bX) {
-                 while (bX != aX) {
-                     if (!desk[aX][aY].equals(" ")) {
-                         return desk;
-                     }
-                     aX--;
-                 }
-             } else {
-                 if (aX < bX) {
-                     while (bX != aX) {
-                         if (!desk[aX][aY].equals(" ")) {
-                             return desk;
-                         }
-                         aX++;
-                     }
-
-                 }
-             }
-             aX = tempForRevise;
-
-             desk[bX][bY] = " ";
-             desk[aX][aY] = "C";
-             return desk;
-
-         }
-        return desk;
-     }
+public class Rook extends ChessPiece{
+    public static Boolean moveRook(char side, int bX, int bY, int aX, int aY ) {
+        if ((bX - aX != 0) && (bY - aY != 0)) {
+            return false;
+        }
+        if(verticals(side, bX, bY, aX, aY)){
+            GameBoard.flagBoard[bX][bY] = true;
+            return true;
+        }
+        return false;
+    }
 }
